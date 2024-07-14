@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirSense</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="intro-section">
+        <h1>AirSense</h1>
+        <p>Bienvenido a AirSense, la solución ideal para monitorear la calidad del aire en espacios cerrados. Obtén información precisa y asegura un ambiente saludable.</p>
+        <button class="scroll-button" onclick="scrollToForm()">Comenzar</button>
+    </div>
+    <div class="form-section" id="form-section">
+        <div class="container">
+            <h1>AirSense</h1>
+            <p>Calidad del aire en espacios cerrados</p>
+            <div class="input-container">
+                <label for="input-length">Longitud del espacio (m):</label>
+                <input type="number" id="input-length" placeholder="Ingresa la longitud en metros">
+            </div>
+            <div class="input-container">
+                <label for="input-width">Ancho del espacio (m):</label>
+                <input type="number" id="input-width" placeholder="Ingresa el ancho en metros">
+            </div>
+            <div class="input-container">
+                <label for="input-height">Altura del espacio (m):</label>
+                <input type="number" id="input-height" placeholder="Ingresa la altura en metros">
+            </div>
+            <div class="input-container">
+                <label for="input-personas">Número de personas:</label>
+                <input type="number" id="input-personas" placeholder="Ingresa la cantidad de personas">
+            </div>
+            <div class="input-container">
+                <label for="input-nana">Tiempo de permanencia (min):</label>
+                <input type="number" id="input-nana" placeholder="Tiempo en minutos">
+            </div>
+            <button class="animated-button" onclick="showResults()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

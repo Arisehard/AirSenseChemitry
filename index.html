@@ -4,14 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirSense</title>
+    <!-- Justificado-->
+    <title>Texto Justificado</title>
+    <style>
+        .justificado {
+            text-align: justify;
+        }
+    </style>
+<!--llamamos el css-->
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
+<!------->
+<div class="hamburger-menu" id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+<nav class="nav-menu" id="nav-menu">
+    <ul>
+        <li><a href="#" data-modal="modal-acerca">Acerca de</a></li>
+        <li><a href="#" data-modal="modal-servicios">Manual</a></li>
+        <li><a href="#" data-modal="modal-contacto">Contacto</a></li>
+    </ul>
+</nav>
+
+<!-- icono hamburger -->
+
+<div class="modal" id="modal-acerca">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Acerca de AirSense</h2>
+        <p class="justificado">¡Bienvenido a AirSense, la solución definitiva para 
+            monitorear la calidad del aire en espacios cerrados! 
+            En AirSense, entendemos la importancia de mantener un 
+            ambiente saludable en tu hogar, oficina o cualquier lugar 
+            cerrado. Nuestra aplicación te proporciona información 
+            precisa sobre los niveles de CO₂ en habitaciones u oficinas, 
+            permitiéndote introducir las dimensiones del espacio 
+            (alto, ancho y longitud),
+             la cantidad de personas y el tiempo de permanencia 
+             para calcular la acumulación de CO₂ generada.</p>
+
+    </div>
+</div>
+
+<div class="modal" id="modal-servicios">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Como usar AirSense</h2>
+        <p class="justificado">Contenido de la sección Servicios.
+            Calcular el CO₂ en espacios cerrados: 
+            Introduce las dimensiones del espacio 
+            (alto, ancho y longitud), junto con la cantidad de personas
+             y el tiempo de permanencia, y AirSense calculará 
+             la acumulación de CO₂, ayudándote a tomar decisiones 
+             informadas para mantener un ambiente saludable.</p>
+
+        <p Class="justificado">Partes Por Millón (ppm):
+             Una unidad de medida utilizada para expresar
+              la concentración de una sustancia en una mezcla.
+              Por ejemplo, en química, puede indicar la cantidad
+               de un contaminante en el aire.</p>
+        <p Class="justificado">En el contexto
+             ambiental, ppm se utiliza para medir la concentración
+              de contaminantes en el aire. Por ejemplo, una
+               concentración de dióxido de carbono (CO₂) de
+                400 PPM significa que hay 400 partes de CO₂
+                en cada millón de partes de aire.</p>
+    </div>
+</div>
+
+<div class="modal" id="modal-contacto">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Contacto</h2>
+        <p class="justificado">Si tienes alguna inquietud o sugerencia para mejorar,
+             no dudes en contactarnos a través de nuestro 
+             correo electrónico: hardinson11@outlook.com.</p>
+    </div>
+</div>
+
+<!--finaliza hamburger-->
+
     <div class="intro-section">
         <h1>AirSense</h1>
         <p>Bienvenido a AirSense, la solución ideal para monitorear la calidad del aire en espacios cerrados. Obtén información precisa y asegura un ambiente saludable.</p>
         <button class="scroll-button" onclick="scrollToForm()">Comenzar</button>
     </div>
+
+
+
+
     <div class="form-section" id="form-section">
         <div class="container">
             <h1>AirSense</h1>
@@ -47,7 +132,7 @@
             <p id="resultText"></p>
         </div>
     </div>
-
+<!--LLama a javascrip-->
     <script src="js/index.js"></script>
 </body>
 </html>

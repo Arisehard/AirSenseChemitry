@@ -34,7 +34,52 @@ function showResults() {
         alert('Por favor, completa todos los campos.');
     }
 }
+    ////////// ico hamburger
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const modals = document.querySelectorAll('.modal');
+        const links = document.querySelectorAll('.nav-menu a');
+        const closeButtons = document.querySelectorAll('.close');
+    
+        // Alternar el menú de navegación
+        hamburgerMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    
+        // Abrir el modal correspondiente al hacer clic en un enlace del menú
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const modalId = this.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                modal.style.display = 'block';
+            });
+        });
+    
+        // Cerrar el modal al hacer clic en el botón de cerrar
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                modal.style.display = 'none';
+            });
+        });
+    
+        // Cerrar el modal al hacer clic fuera del contenido del modal
+        window.addEventListener('click', function(event) {
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    });
+    /////////final
+    
+
 
 function closeModal() {
     document.getElementById('resultModal').style.display = 'none';
 }
+
+

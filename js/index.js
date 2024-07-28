@@ -28,7 +28,7 @@ function showResults() {
         // Convertir litros a partes por millón (ppm)
         const cCO2Ppm = (cCO2 / volume) * 1e6;
 
-        document.getElementById('resultText').innerText = `El resultado de la concentración de CO2 es: ${cCO2Ppm.toFixed(2)} ppm`;
+        document.getElementById('resultText').innerText = `El resultado de la concentración emitidas de CO₂ es: ${cCO2Ppm.toFixed(2)} ppm`;
         document.getElementById('resultModal').style.display = 'block';
     } else {
         alert('Por favor, completa todos los campos.');

@@ -10,22 +10,18 @@ function showResults() {
     const tiempo = document.getElementById('input-nana').value;
 
     if (length && width && height && personas && tiempo) {
-        const volume = length * width * height;
-        const ach = 3; // Tasa de ventilación (ACH)
-        const co2EmissionPerPerson = 0.03; // Tasa de emisión de CO2 por persona en l/s
+        const volume = length * width * height; // Volumen de la habitación en metros cúbicos
+        
+        // Tasa de emisión de CO2 por persona en l/min (0.03 l/s * 60 s/min)
+        const co2EmissionPerPersonPerMinute = 0.03 * 60; 
 
-        // Paso 1: Calcular la tasa de ventilación efectiva
-        const vTotal = volume * ach;
-
-        // Paso 2: Calcular la emisión total de CO2
-        const eTotalCO2PerSecond = co2EmissionPerPerson * personas;
-        const eTotalCO2PerHour = eTotalCO2PerSecond * 3600; // Convertir a l/h
-
-        // Paso 3: Calcular la concentración de CO2
-        const cCO2 = (eTotalCO2PerHour * volume) / vTotal;
-
-        // Convertir litros a partes por millón (ppm)
-        const cCO2Ppm = (cCO2 / volume) * 1e6;
+       
+        // Paso 2: Calcular la Emisión Total de CO2 por Persona en 60 Minutos
+        const eTotalCO2PerMinute = co2EmissionPerPersonPerMinute * 60;
+    
+        // Paso 3: por personas
+        const cCO2Ppm = eTotalCO2PerMinute * personas; // Emisión total de CO2 en litros por hora
+    
 
         let resultMessage;
         if (cCO2Ppm > 800) {

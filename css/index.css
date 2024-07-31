@@ -127,10 +127,7 @@ input {
     text-align: center;
 }
 
-/*alinear javascrip*/
-.justified {
-    text-align: justify;
-}
+
 
 .close {
     color: #aaa;

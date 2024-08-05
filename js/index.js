@@ -13,32 +13,36 @@ function showResults() {
         const volume = length * width * height; // Volumen de la habitación en metros cúbicos
         
         // Tasa de emisión de CO2 por persona en l/min (0.03 l/s * 60 s/min)
-        const co2EmissionPerPersonPerMinute = 0.03 * 60; 
-
+        const Tiemmpo = tiempo*60
+        const co2EmissionPerPersonPerMinute = 0.03 * Tiemmpo; 
+        
        
         // Paso 2: Calcular la Emisión Total de CO2 por Persona en 60 Minutos
-        const eTotalCO2PerMinute = co2EmissionPerPersonPerMinute * 60;
+        const eTotalCO2PerMinute = co2EmissionPerPersonPerMinute;
     
         // Paso 3: por personas
         const cCO2Ppm = eTotalCO2PerMinute * personas; // Emisión total de CO2 en litros por hora
     
 
         let resultMessage;
-        if (cCO2Ppm > 800) {
-            resultMessage = `Advertencia: La concentración de CO₂ es alta (${cCO2Ppm.toFixed(2)} ppm).
+        if (cCO2Ppm <= 800) {
+            resultMessage = `La concentración de CO₂ es segura (${cCO2Ppm.toFixed(2)} ppm).`
 
-Es importante actuar rápidamente para reducirlos y mejorar la calidad del aire. Aquí tienes algunas medidas que puedes tomar:
 
-Ventilación: Abre ventanas y puertas para permitir la entrada de aire fresco y la salida del aire viciado. Utilizar ventiladores puede ayudar a acelerar este proceso.
-
-Plantas de Interior: Coloca plantas en la habitación, ya que algunas pueden ayudar a absorber CO₂ y liberar oxígeno. Ejemplos de plantas eficaces incluyen la palma areca, la lengua de suegra y el potus.
-
-Purificadores de Aire: Utiliza un purificador de aire con filtro de carbón activado, que puede ayudar a reducir los niveles de CO₂ y otros contaminantes en el aire.
-
-Mantenimiento de Sistemas de Ventilación: Asegúrate de que los sistemas de ventilación y aire acondicionado estén limpios y funcionando correctamente, para garantizar una circulación adecuada del aire.`;
-        } else {
-            resultMessage = `La concentración de CO₂ es segura (${cCO2Ppm.toFixed(2)} ppm).`;
+        } else if (cCO2Ppm <= 1100){
+            resultMessage = ` Advertencia: La concentración de CO₂ está por encima de los niveles recomendados. (${cCO2Ppm.toFixed(2)}ppm).
+            Ventilación: Abre las ventanas y las puertas para permitir la entrada de aire fresco y la salida del aire viciado. Esto ayuda a diluir el CO₂ y a renovar el aire en la habitación. 
+            Mantenimiento del Espacio: Asegúrate de que los sistemas de ventilación y aire acondicionado estén limpios y funcionando correctamente para garantizar una buena circulación del aire.`;
         }
+
+    else if (cCO2Ppm > 1101){
+        ;
+        resultMessage = `Advertencia: La concentración de CO₂ es alta (${cCO2Ppm.toFixed(2)} ppm).
+        Es importante actuar rápidamente para reducirlos y mejorar la calidad del aire. Aquí tienes algunas medidas que puedes tomar:
+        Plantas de Interior: Coloca plantas en la habitación, ya que algunas pueden ayudar a absorber CO₂ y liberar oxígeno. Ejemplos de plantas eficaces incluyen la palma areca, la lengua de suegra y el potus.
+        Purificadores de Aire: Utiliza un purificador de aire con filtro de carbón activado, que puede ayudar a reducir los niveles de CO₂ y otros contaminantes en el aire.
+        Mantenimiento de Sistemas de Ventilación: Asegúrate de que los sistemas de ventilación y aire acondicionado estén limpios y funcionando correctamente, para garantizar una circulación adecuada del aire.`;
+    }
 
         document.getElementById('resultText').innerText = resultMessage;
         document.getElementById('resultModal').style.display = 'block';
